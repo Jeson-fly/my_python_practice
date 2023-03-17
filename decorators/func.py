@@ -3,7 +3,7 @@
 
 """
   Author  ：lining22
-  Email  ：lining22@staff.weibo.com
+  Email  ：993811091@qq.com
   Time  ：2023/3/16
   Desc  ：函数装饰器
 """
