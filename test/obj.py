@@ -2,8 +2,8 @@
 # -*-coding:utf-8 -*-
 
 """
-  Author  ：lining22
-  Email  ：lining22@staff.weibo.com
+  Author  ：lining
+  Email  ：993811091@qq.com
   Time  ：2023/3/20
   Desc  ：
 """
