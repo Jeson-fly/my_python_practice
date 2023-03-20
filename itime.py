@@ -9,8 +9,6 @@
 import datetime
 import time
 
-import dateutil.relativedelta
-
 
 def get_day_past_seconds(timestamp=None):
     """
