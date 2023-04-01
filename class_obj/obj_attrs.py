@@ -12,24 +12,29 @@
 class GetDefaultAttrs:
     """获取默认属性值"""
 
-    def __init__(self):
-        self.x = "111"
-
     def __getattr__(self, item):
-        # 方式一
-        # try:
-        #     super().__getattribute__(item)
-        # except Exception as e:
-        #     print(e)
-
-        # 方式二
+        #     """
+        #     仅当在self、Class和超类中找不到指定属性时才会触发该函数
+        #     :param item:
+        #     :return:
+        #     """
+        #     # 方式一
+        #     # try:
+        #     #     super().__getattribute__(item)
+        #     # except Exception as e:
+        #     #     print(e)
+        #
+        #     # 方式二
         print(f"类属性 {self.__dict__}")
-        if item not in self.__dict__:
-            return "default_value"
-        return super(GetDefaultAttrs, self).__getattr__(item)
+        return "default_value"
 
 
-t = GetDefaultAttrs()
+class Test(GetDefaultAttrs):
+    def __init__(self):
+        self.ab = "1"
+
+
+t = Test()
 print(t.y)
 
-print(t.x)
+print(t.ab)
