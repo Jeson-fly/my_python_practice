@@ -87,6 +87,21 @@ class TestVector2d:
     def __format__(self, format_spec=''):
         """"""
 
+    def __getstate__(self):
+        """
+        序列化时调用的方法
+        默认情况下返回 __dict__
+        """
+        return self.__dict__
+
+    def __setstate__(self, state):
+        """
+        反序列化是调用的方法，state为源对象的__dict__
+        :param state:
+        :return:
+        """
+        self.__dict__ = state
+
 
 class Test01:
     def __init__(self):
