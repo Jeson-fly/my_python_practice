@@ -36,8 +36,10 @@ class GetDefaultAttrs:
 
     def __setstate__(self, state):
         """反序列化调用函数"""
-        print("iiii", self.__class__.__module__)
-        print(state)
+        # print(state)
+        # print(self.__dir__())
+        # print("iiii", self.__class__.__module__)
+        # state["c"]=5555
         self.__dict__ = state
 
 

@@ -7,7 +7,8 @@
   Time  ：2023/3/16
   Desc  ：类装饰器
 """
-from  func import wraps
+from func import wraps
+
 
 class Decorator:
     def __init__(self, param1, param2):
@@ -17,14 +18,17 @@ class Decorator:
     def __call__(self, *args, **kwargs):
         """"""
 
+
 # 把Ta们放在一起是为了让大家能更方便地看清无传参装饰和有传参装饰器的比对区别。
 
 collected_functions = []  # 用于收集使用过decorator_with_params装饰器的函数
+
 
 class ClsBasedDecoratorWithoutParams(object):
     """
     基于类的无传参装饰器。
     """
+
     def __init__(self, original_func):
         print('在基于类的装饰器中...')
         print('传入的函数为：{}'.format(original_func))
@@ -43,6 +47,7 @@ class ClsBasedDecoratorWithParams(object):
     """
     基于类的传参装饰器。
     """
+
     def __init__(self, *_args, **_kwargs):
         print('在基于类的装饰器中...')
         print('装饰器接收到的参数是：args={}, kwargs={}'.format(_args, _kwargs))
@@ -60,11 +65,12 @@ if __name__ == '__main__':
     def class_based_decorator_without_params(string):
         print('不干活儿...')
 
+
     class_based_decorator_without_params(string='hello_world')
 
 
     @ClsBasedDecoratorWithParams('hello')  # 有传参装饰器
-    def class_based_decorator_with_params(*args,**kwargs):
+    def class_based_decorator_with_params(*args, **kwargs):
         print('不干活儿...')
 
 

@@ -10,10 +10,10 @@
 from functools import wraps
 
 
-def decorator(func):
+def decorator(f):
     def wraps_func(*args):
         # print(f"do some thing {args}")
-        result = func(*args)
+        result = f(*args)
         return result
 
     return wraps_func
