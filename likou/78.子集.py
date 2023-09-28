@@ -24,5 +24,8 @@ if __name__ == '__main__':
     cases = [
         [1, 2, 3]
     ]
-    for case in cases:
-        s.subsets(case)
+    # for case in cases:
+    #     s.subsets(case)
+    s = set()
+    s.add(1)
+    print(bool(s))

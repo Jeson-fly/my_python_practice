@@ -17,16 +17,11 @@ class Solution:
         """
         stack = []
         res = [0 for _ in range(len(temperatures))]
-        for idx, value in enumerate(temperatures):
-            while stack:
-                if temperatures[stack[-1]] < value:
-                    i = stack.pop()
-                    res[i] = idx - i
-                else:
-                    stack.append(idx)
-                    break
-            if not stack:
-                stack.append(idx)
+        for i in range(len(temperatures)):
+            while stack and temperatures[stack[-1]] < temperatures[i]:
+                last_idx = stack.pop()
+                res[last_idx] = i - last_idx
+            stack.append(i)
         return res
 
 
