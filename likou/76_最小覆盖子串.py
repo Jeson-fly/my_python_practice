@@ -12,7 +12,7 @@ from typing import List
 
 
 class Solution:
-    def minWindow(self, s: str, t: str) -> str:
+    def minWindow1(self, s: str, t: str) -> str:
         """
         先遍历一遍s，找到所有的情况
         """
@@ -45,11 +45,51 @@ class Solution:
                 sub_str = s[start:end + 1]
         return sub_str
 
+    def minWindow(self, s: str, t: str) -> str:
+        """"""
+
+        def check():
+            for word, count in t_map.items():
+                if cur_map.get(word, 0) < count:
+                    return False
+            return True
+
+        t_map = {}
+        cur_map = {}
+        sub_min = len(s)+1
+        sub_str = ""
+        for i in range(len(t)):
+            t_map.setdefault(t[i], 0)
+            t_map[t[i]] += 1
+
+        left = rigth = 0
+
+        while rigth < len(s):
+            while rigth < len(s):
+                if check():
+                    if rigth - left + 1 <= sub_min:
+                        sub_min = rigth - left + 1
+                        sub_str = s[left:rigth]
+                    break
+                else:
+                    cur_map.setdefault(s[rigth], 0)
+                    cur_map[s[rigth]] += 1
+                    rigth += 1
+            while left < rigth:
+                if not check():
+                    break
+                else:
+                    if rigth - left + 1 <= sub_min:
+                        sub_min = rigth - left + 1
+                        sub_str = s[left:rigth]
+                    cur_map[s[left]] -= 1
+                    left += 1
+        return sub_str
 
 if __name__ == '__main__':
     mo = Solution()
     cases = [
-        ["ADOBECODEBANC", "ABC"],
+        ["ab", "a"],
     ]
     for s_1, s_2 in cases:
         print(mo.minWindow(s_1, s_2))
